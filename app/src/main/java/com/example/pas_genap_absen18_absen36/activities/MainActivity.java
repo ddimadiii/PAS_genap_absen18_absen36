@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.pas_genap_absen18_absen36.R;
 import com.example.pas_genap_absen18_absen36.fragments.PlayerFragment;
+import com.example.pas_genap_absen18_absen36.fragments.ProfileFragment;
 import com.example.pas_genap_absen18_absen36.fragments.SpainFragment;
 import com.example.pas_genap_absen18_absen36.networks.ApiService;
 import com.google.android.material.navigation.NavigationView;
@@ -65,8 +66,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-            if (id == R.id.nav_player) {
+            else if (id == R.id.nav_player) {
                 fragment = new PlayerFragment();
+            }else if (id == R.id.nav_biodata) {
+                fragment = new ProfileFragment();
             }
 
 
