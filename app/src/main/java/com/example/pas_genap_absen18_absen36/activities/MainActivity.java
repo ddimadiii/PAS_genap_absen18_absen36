@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.pas_genap_absen18_absen36.R;
 import com.example.pas_genap_absen18_absen36.fragments.PlayerFragment;
+import com.example.pas_genap_absen18_absen36.fragments.SpainFragment;
 import com.example.pas_genap_absen18_absen36.networks.ApiService;
 import com.google.android.material.navigation.NavigationView;
 
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
             navigationView.setCheckedItem(R.id.nav_spain);
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.frame_layout, new SpainFragment())
+                    .replace(R.id.frame_layout, new SpainFragment());
 
             navigationView.setCheckedItem(R.id.nav_player);
             getSupportFragmentManager().beginTransaction()
@@ -101,5 +102,5 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-w
+
 }
