@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         drawerLayout = findViewById(R.id.drawerLayout);
@@ -37,11 +38,13 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
 
 
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://www.thesportsdb.com/api/v1/json/3/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         apiService = retrofit.create(ApiService.class);
+
 
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -51,14 +54,19 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+
         navigationView.setNavigationItemSelectedListener(item -> {
             Fragment fragment = null;
             int id = item.getItemId();
 
+            if (id == R.id.nav_spain) {
+                fragment = new SpainFragment();
+            }
+
+
             if (id == R.id.nav_player) {
                 fragment = new PlayerFragment();
             }
-
 
 
             if (fragment != null) {
@@ -72,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         if (savedInstanceState == null) {
+
+            navigationView.setCheckedItem(R.id.nav_spain);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frame_layout, new SpainFragment())
 
             navigationView.setCheckedItem(R.id.nav_player);
             getSupportFragmentManager().beginTransaction()
@@ -89,4 +101,5 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+w
 }
