@@ -16,7 +16,7 @@ import com.example.pas_genap_absen18_absen36.R;
 import com.example.pas_genap_absen18_absen36.adapters.TeamAdapter;
 import com.example.pas_genap_absen18_absen36.models.Team;
 import com.example.pas_genap_absen18_absen36.models.TeamResponse;
-import com.example.pas_genap_absen18_absen36.networks.APIService;
+import com.example.pas_genap_absen18_absen36.networks.ApiService;
 
 import java.util.List;
 
@@ -53,7 +53,7 @@ public class SpainFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        APIService apiService = retrofit.create(APIService.class);
+        ApiService apiService = retrofit.create(ApiService.class);
         Call<TeamResponse> call = apiService.getSpainLeagueTeams("Soccer", "Spain");
 
         call.enqueue(new Callback<TeamResponse>() {
